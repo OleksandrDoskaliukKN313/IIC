@@ -1,0 +1,48 @@
+package worker;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import database.DatabaseFacade;
+public class Handler {
+	private static boolean created = false;
+	private static ResultSet resultSet = null;
+	private static String currentWord=null;
+	
+	private Handler()
+	{
+	}
+	private static ResultSet getResultSet()
+	{
+		if(resultSet == null)
+		{
+		try
+		{
+			resultSet = DatabaseFacade.getStatment().executeQuery("select * from words.words");
+			created = true;
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		}
+		return resultSet;
+	}
+	public static String getCurrentWord()
+	{
+		return currentWord;
+	}
+	public static String getNextWord()
+	{
+			try {
+				ResultSet temp = getResultSet();
+				if(temp.next())
+					{currentWord= temp.getString("en");
+					return currentWord;}
+				else return null;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+			}
+	}
+}

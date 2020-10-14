@@ -1,0 +1,30 @@
+<%@page import="java.sql.SQLException"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="UTF-8"%>
+    <%@ page import = "database.DatabaseFacade" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add new word</title>
+</head>
+<body>
+	<%
+	String en = request.getParameter("en");
+	String ua = new String(request.getParameter("ua").getBytes("ISO-8859-1"),"UTF8");
+	try{
+		DatabaseFacade.getStatment().execute("insert into words.words (en,ua,count_correct_en,count_correct_ua) values("+"'"+en+"',"
+				+"'"+ua+"',"+"0,0);");
+	}catch(SQLException e)
+	{
+		out.print(e.printStackTrace());
+	}
+	
+	%>
+		<p>EN: <%=en  %></p>
+        <p>UA: <%=ua  %></p>
+        <p>Done!</p>
+        <button onclick="location.href='addWord'">Add new word</button>
+        <button onclick="location.href='index.html'">Back</button>
+</body>
+</html>

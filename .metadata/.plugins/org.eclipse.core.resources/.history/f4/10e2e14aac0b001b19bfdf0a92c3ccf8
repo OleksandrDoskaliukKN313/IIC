@@ -1,0 +1,40 @@
+<%@page import="java.sql.ResultSet"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page import = "database.DatabaseFacade" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>EN TO UA</title>
+</head>
+<body>
+<%
+<form action="temp.jsp">
+EN word: <input name="en" />
+<br><br>
+<input type="submit" value="Submit" />
+</form>
+	ResultSet resultSet = DatabaseFacade.getStatment().getResultSet();
+	while(resultSet.next())
+	{
+		%>
+		<form action="temp.jsp">
+		EN word: <input name="en" />
+    	<br><br>
+    	<input type="submit" value="Submit" />
+    	</form>
+    	
+<%
+		String input = request.getParameter("en");
+		out.println(input);
+%>
+
+		
+		
+		
+		<%
+	}
+%>
+</body>
+</html>

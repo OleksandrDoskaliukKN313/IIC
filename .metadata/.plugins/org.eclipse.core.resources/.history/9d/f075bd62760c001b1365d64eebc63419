@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page import = "database.DatabaseFacade" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Delete word JSP</title>
+</head>
+<body>
+<%
+	String en = request.getParameter("en");
+	DatabaseFacade.getStatment().execute("delete from words.words where(en='"+ en + "');");
+%>
+<p>Done!</p>
+<button onclick="location.href='deleteWord'">Delete more</button>
+<button onclick="location.href='index.html'">Back</button>
+</body>
+</html>

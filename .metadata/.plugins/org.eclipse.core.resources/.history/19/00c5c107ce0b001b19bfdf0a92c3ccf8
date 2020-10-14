@@ -1,0 +1,11 @@
+package worker;
+import database.DatabaseFacade;
+public class Handler {
+	public static boolean created = false;
+	private static Handler handler=null;
+	
+	public static getHTML()
+	{
+		
+	}
+}

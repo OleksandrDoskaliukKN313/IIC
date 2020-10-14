@@ -1,0 +1,73 @@
+package worker;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import database.DatabaseFacade;
+public class Handler {
+	public static boolean created = false;
+	private static ResultSet resultSet = null;
+	public static String currentWordEN=null;
+	public static String currentWordUA=null;
+	
+	
+	private Handler()
+	{
+	}
+	private static ResultSet getResultSet()
+	{
+		if(resultSet == null)
+		{
+		try
+		{
+			resultSet = DatabaseFacade.getStatment().executeQuery("select * from words.words");
+			
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		}
+		return resultSet;
+	}
+	public static String getCurrentWordEN()
+	{
+		return currentWordEN;
+	}
+	public static String getCurrentWordUA()
+	{
+		return currentWordUA;
+	}
+	public static void incrementCorrectCount()
+	{
+		
+	}
+	public static String getNextWord()
+	{
+			try {
+				ResultSet temp = getResultSet();
+				if(temp.next())
+					{
+					while(Integer.valueOf(temp.getString("count_correct_en"))>5)
+					{
+						if(temp.next());
+						else return null;
+					}
+					currentWordEN= temp.getString("en");
+					currentWordUA= temp.getString("ua");
+					return currentWordEN;
+					}
+				else return null;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+			}
+	}
+	public static void clear()
+	{
+		created = false;
+		resultSet = null;
+		currentWordEN=null;
+		currentWordUA=null;
+	}
+}

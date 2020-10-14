@@ -1,0 +1,5 @@
+package database.copy;
+
+public class DatabaseFacade {
+
+}

@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add new word</title>
+</head>
+<body>
+
+		<p>EN: <%= request.getParameter("en") %></p>
+        <p>UA: <%= new String(request.getParameter("ua").getBytes("ISO-8859-1"),"UTF8") %></p>
+        <p>Done!</p>
+</body>
+</html>

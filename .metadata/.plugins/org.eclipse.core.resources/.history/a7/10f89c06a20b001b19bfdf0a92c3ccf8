@@ -1,0 +1,24 @@
+<%@page import="java.io.PrintWriter"%>
+<%@page import="java.sql.ResultSet"%>
+<%@ page language="java" contentType="text/html; charset=utf-8	"
+    pageEncoding="ISO-8859-1"%>
+
+<%@page import = "database.DatabaseFacade" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>All words</title>
+
+</head>
+<body>
+<%
+	
+	ResultSet resultSet = DatabaseFacade.getStatment().executeQuery("SELECT * FROM words.words");
+	while(resultSet.next())
+	{
+		out.println(resultSet.getString(1) + " - " + resultSet.getString(2)+"<br>");
+	}
+%>
+</body>
+</html>

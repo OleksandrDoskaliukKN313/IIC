@@ -1,0 +1,36 @@
+package servises;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import database.DatabaseFacade;
+public class Service {
+
+	private static ResultSet resultSet=null;
+	public Service()
+	{
+		if(resultSet ==null)
+		{
+		try
+		{
+			resultSet = DatabaseFacade.getStatment().executeQuery("select * from words.words");
+		}
+		catch(SQLException e)
+		{
+			resultSet=null;
+			e.printStackTrace();
+		}
+		}
+	}
+	public String getWord()
+	{
+		try {
+			return resultSet.getString("en");
+		} catch (SQLException e) {
+			return null;
+		}
+	}
+
+	
+	
+	
+}

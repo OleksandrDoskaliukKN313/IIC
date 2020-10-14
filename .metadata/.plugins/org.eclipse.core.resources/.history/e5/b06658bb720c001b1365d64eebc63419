@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="w3.css">
+</head>
+<body class="w3-light-grey">
+<div class="w3-container w3-grey w3-opacity w3-left-align w3-text-green">
+        <h1>My dictionary!</h1>
+    </div>
+    <div class="w3-container w3-center">       <!-- content -->
+        <div class="w3-card-4 w3-flex">    <!-- buttons holder -->
+            <button class="w3-btn w3-hover-green w3-round-large" onclick="location.href='allWords'">All words</button>
+            <button class="w3-btn w3-hover-green w3-round-large" onclick="location.href='addWord'">Add new word</button>
+            <button class="w3-btn w3-hover-green w3-round-large" onclick="location.href='en_ua'">Start en to ua</button>
+            <button class="w3-btn w3-hover-green w3-round-large" onclick="location.href='ua_en'">Start ua to en</button>
+            <button class="w3-btn w3-hover-green w3-round-large" onclick="location.href='deleteWord'">Delete word</button>
+        </div>
+    </div>
+</body>
+</html>

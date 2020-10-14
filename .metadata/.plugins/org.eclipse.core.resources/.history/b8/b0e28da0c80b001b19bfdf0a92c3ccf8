@@ -1,0 +1,33 @@
+<%@page import="java.sql.ResultSet"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page import = "database.DatabaseFacade" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>EN TO UA</title>
+</head>
+<body>
+<%
+ResultSet resultSet = DatabaseFacade.getStatment().executeQuery("select * from words.words");
+
+while(resultSet.next())
+{
+	
+	%>
+	<form action = "temp.jsp">
+    EN word: <%=resultSet.getString("en") %>
+    <br><br>
+    UA word: <input name="ua" />
+    <br></br>
+    <input type="submit" value="Submit" />
+   	
+</form>
+	<%
+	
+}
+%>
+
+</body>
+</html>

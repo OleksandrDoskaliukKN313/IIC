@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+ <div>
+        <h1>Super app!</h1>
+    </div>
+    <div>       <!-- content -->
+        <div>    <!-- buttons holder -->
+            <button onclick="location.href='allData'">All words</button>
+            <button onclick="location.href='addWord'">Add new word</button>
+            <button onclick="location.href='en_ua'">Start en to ua</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Input Form</title>
+<link rel="stylesheet" href="w3.css">
+</head>
+<body class="w3-light-grey ">
+<div class="w3-container w3-blue-grey w3-opacity w3-left-align 	">
+        <h1 class = "w3-xxxlarge">Add new word</h1>
+    </div>
+<div class = "w3-xlarge w3-container w3-center">
+<form action="addWord.jsp">
+    EN word: <input name="en" />
+    <br><br>
+    UA word: <input name="ua" />
+    <br></br>
+    <input type="submit" value="Submit" />
+   <br>
+   <button class="w3-btn w3-hover-red w3-round-large w3-large w3-margin-top" onclick="location.href='index.html'">Back</button>
+</form>
+</div>
+ 
+</body>
+</html>

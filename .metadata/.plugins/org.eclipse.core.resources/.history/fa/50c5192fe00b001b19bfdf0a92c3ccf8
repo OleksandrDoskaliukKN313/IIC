@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Correct Answer</title>
+</head>
+<body>
+CORRECT ANSWER!
+<form action="/WebDictionary/en_ua?с=abc">
+	<%request.setAttribute("correct", "correct"); %>
+    <input type="submit" value="Next" /> 
+</form>
+</body>
+</html>

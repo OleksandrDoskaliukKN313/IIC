@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+        <h1>Super app!</h1>
+    </div>
+    <div>       <!-- content -->
+        <div>    <!-- buttons holder -->
+            <li><button onclick="location.href='allWords'">All words</button></li>
+            <li><button onclick="location.href='addWord'">Add new word</button></li>
+            <button onclick="location.href='en_ua'">Start en to ua</button>
+            <button onclick="location.href='ua_en'">Start ua to en</button>
+            <button onclick="location.href='deleteWord'">Delete word</button>
+        </div>
+    </div>
+</body>
+</html>

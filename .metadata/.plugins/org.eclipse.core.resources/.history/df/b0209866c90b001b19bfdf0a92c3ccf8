@@ -1,0 +1,22 @@
+<%@page import="java.sql.ResultSet"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page import = "database.DatabaseFacade" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>EN TO UA</title>
+</head>
+<body>
+<%String word = (String)request.getAttribute("word");
+%>
+<form action="/en_ua">
+    EN word: <%=word %>
+    UA word: <input name="ua" />
+    <br></br>
+    <input type="submit" value="Submit" />
+   
+</form>
+</body>
+</html>

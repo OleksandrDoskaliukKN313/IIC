@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Delete Form</title>
+</head>
+<body>
+<form action="addWord.jsp">
+    EN word: <input name="en" />
+    <br><br>
+    <input type="submit" value="DeleteS" />
+   
+</form>
+ <button onclick="location.href='index.html'">Back</button>
+</body>
+</html>

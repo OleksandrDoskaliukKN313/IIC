@@ -1,0 +1,63 @@
+package servlets;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import worker.Handler;
+
+/**
+ * Servlet implementation class TesterServlet
+ */
+public class TesterServlet extends HttpServlet {
+	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		System.out.println("TESTER");
+		String ua = new	String(request.getParameter("ua").getBytes("ISO-8859-1"),"UTF8");
+		if(ua.equals(""))
+		{
+			RequestDispatcher dispatcher = request.getRequestDispatcher("uncorrectAnswer.jsp");
+			request.setAttribute("en", Handler.getCurrentWordEN());
+			request.setAttribute("ua", Handler.getCurrentWordUA());
+	        dispatcher.forward(request, response);
+		}
+		else
+		{
+			boolean correct = Handler.getCurrentWordUA().contains(ua);
+			request.setAttribute("correct", correct);
+			request.setAttribute("tester", "tester");
+			if(correct)
+			{
+				RequestDispatcher dispatcher = request.getRequestDispatcher("correctAnswer.jsp");
+		        dispatcher.forward(request, response);
+			}
+			else
+			{
+				request.setAttribute("en", Handler.getCurrentWordEN());
+				request.setAttribute("ua", Handler.getCurrentWordUA());
+				RequestDispatcher dispatcher = request.getRequestDispatcher("uncorrectAnswer.jsp");
+		        dispatcher.forward(request, response);
+			}
+		}
+		
+		
+		/*
+		 * RequestDispatcher dispatcher = request.getRequestDispatcher("/en_ua");
+		 * dispatcher.forward(request, response);
+		 */
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request, response);
+    }
+}
